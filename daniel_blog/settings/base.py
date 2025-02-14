@@ -20,7 +20,7 @@ from django.conf.global_settings import AUTHENTICATION_BACKENDS, LOGIN_REDIRECT_
 from requests.packages import package
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -47,15 +47,11 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
-DEBUG = False
 
 """
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
     if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1", ".pythonanywhere.com", "172.234.85.164"]
 """
-# 여기서.app은 wsgi.py에서 정의된 app이다.
-ALLOWED_HOSTS = [".vercel.app", "daniel_blog.vercel.app", "daniel-blog-o2te.vercel.app", ".pythonanywhere.com", "localhost", '127.0.0.1']
 
 # Application definition
 
@@ -135,14 +131,6 @@ WSGI_APPLICATION = "daniel_blog.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 # local databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "daniel_blog_db"
-    }
-}
-
-
 """
 # for publish
 hostname = os.environ['DBHOST']
@@ -204,8 +192,6 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

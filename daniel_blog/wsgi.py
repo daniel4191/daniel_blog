@@ -17,7 +17,7 @@ from django.contrib.staticfiles.handlers import StaticFilesHandler
 #     sys.path.append(project_root)
 
 # Django 설정 모듈 설정
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project_name.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project_name.settings.production")
 
 # WSGI 애플리케이션 반환
 application = StaticFilesHandler(get_wsgi_application())
